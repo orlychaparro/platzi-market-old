@@ -1,6 +1,7 @@
 package com.platzi.market.persistence.entity;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity(name = "categorias")
 public class Categoria {
@@ -13,6 +14,10 @@ public class Categoria {
     private String descripcion;
 
     private Boolean estado;
+    @OneToMany(mappedBy = "categoria")   // se anota la relacion one to may y se mapea con categoria que secreo en Producto Many to one.
+    private List<Producto> productos;  // se crea un tipo List de productos
+
+
 
     public Integer getIdCategoria() {
         return idCategoria;

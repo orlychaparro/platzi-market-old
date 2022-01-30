@@ -26,6 +26,10 @@ public class Producto {
 
     private Boolean estado;
 
+    @ManyToOne  // relacion muchos a uno
+    @JoinColumn(name = "id_categoria", insertable = false, updatable = false)  // insertable yupdatabla false significa que no se va a borrar ni agregar desde esta relacion
+    private Categoria categoria;  // La relacion de la tabla categoria con producto. muchos a uno
+
     public Integer getIdProducto() {
         return idProducto;
     }
